@@ -1,0 +1,17 @@
+[package]
+name = "rich_lib"
+version = "0.0.0"
+authors = ["Richard70NL <richard@richard70.nl>"]
+edition = "2018"
+description = "A library with various extension and helper functionality."
+repository = "https://github.com/Richard70NL/rich_lib"
+readme = "README.md"
+keywords = ["util", "helper", "extension"]
+categories = ["development-tools"]
+license = "MIT"
+include = ["**/*.rs", "Cargo.toml", "README.md", "LICENSE"]
+
+[dependencies]
+
+[badges]
+travis-ci = {repository = "Richard70NL/rich_lib"}
