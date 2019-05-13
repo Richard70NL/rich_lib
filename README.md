@@ -1,4 +1,4 @@
-# Dialogue
+# rich_lib
 
 [![Build Status](https://travis-ci.org/Richard70NL/rich_lib.svg?branch=master)](https://travis-ci.org/Richard70NL/rich_lib)
 
