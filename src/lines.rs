@@ -54,7 +54,7 @@ impl Lines for String {
 
     /*------------------------------------------------------------------------------------------*/
 
-    fn set(self, index: usize, line: String) -> String {
+    fn set(self, index: usize, line: String) -> Self {
         let mut sl = self.split();
         sl[index] = line;
         sl.merge()
