@@ -3,6 +3,7 @@ cache: cargo
 
 script:
   - cargo test --verbose
+  - cargo doc --verbose
   - cargo build --verbose
   - cargo build --verbose --release
 
