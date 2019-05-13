@@ -44,22 +44,147 @@ pub trait Lines {
     /// ```
     fn get(&self, index: usize) -> String;
 
+    /// Set a specified line.
+    ///
+    /// # Arguments
+    ///
+    /// * `index` - the index of the line to be set.
+    /// * `line` - the line to be set.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2\nline3\nline4")
+    ///             .set(1, String::from("lineA"))
+    ///             .set(3, String::from("lineB"));
+    ///
+    /// assert_eq!(s, "line0\nlineA\nline2\nlineB\nline4");
+    /// ```
     fn set(self, index: usize, line: String) -> Self;
 
+    /// Inserts a line at a specified location.
+    ///
+    /// # Arguments
+    ///
+    /// * `index` - the index of the line to be inserted.
+    /// * `line` - the line to be inserted
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2")
+    ///             .insert(1, String::from("lineA"))
+    ///             .insert(3, String::from("lineB"));
+    ///
+    /// assert_eq!(s, "line0\nlineA\nline1\nlineB\nline2");
+    /// ```
     fn insert(self, index: usize, line: String) -> Self;
 
+    /// Removes a line on a specified location.
+    ///
+    /// # Arguments
+    ///
+    /// * `index` - the index of the line that needs to be removed.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").remove(1);
+    ///
+    /// assert_eq!(s, "line0\nline2");
+    /// ```
     fn remove(self, index: usize) -> Self;
 
+    /// Appends a line at the end.
+    ///
+    /// # Arguments
+    ///
+    /// * `line` - line to append.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").append(String::from("line3"));
+    ///
+    /// assert_eq!(s, "line0\nline1\nline2\nline3");
+    /// ```
     fn append(self, line: String) -> Self;
 
+    /// Prepends a line at the beginning.
+    ///
+    /// # Arguments
+    ///
+    /// * `line` - line to prepend.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").prepend(String::from("line3"));
+    ///
+    /// assert_eq!(s, "line3\nline0\nline1\nline2");
+    /// ```
     fn prepend(self, line: String) -> Self;
 
+    /// Returns the first line.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").first();
+    ///
+    /// assert_eq!(s, "line0");
+    /// ```
     fn first(&self) -> String;
 
+    /// Returns the last line.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").last();
+    ///
+    /// assert_eq!(s, "line2");
+    /// ```
     fn last(&self) -> String;
 
+    /// Removes the first line.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").remove_first();
+    ///
+    /// assert_eq!(s, "line1\nline2");
+    /// ```
     fn remove_first(self) -> Self;
 
+    /// Removes the last line.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").remove_last();
+    ///
+    /// assert_eq!(s, "line0\nline1");
+    /// ```
     fn remove_last(self) -> Self;
 }
 
@@ -68,6 +193,22 @@ pub trait Lines {
 /// The `SplitLines` trait contains all functions to be implemented that splits an object (String)
 /// into separate lines.
 pub trait SplitLines {
+    /// Splits to multiple lines.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let s = String::from("line0\nline1\nline2").split();
+    /// let v = vec![
+    ///     String::from("line0"),
+    ///     String::from("line1"),
+    ///     String::from("line2")
+    /// ];
+    ///
+    /// assert_eq!(s, v);
+    /// ```
     fn split(&self) -> StringLines;
 }
 
@@ -76,6 +217,22 @@ pub trait SplitLines {
 /// The `MergeLines` trait contains all functions to be implemented that will join separate lines
 /// into a single object (String).
 pub trait MergeLines {
+    /// Merges multiple lines.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use rich_lib::lines::*;
+    ///
+    /// let v = vec![
+    ///     String::from("line0"),
+    ///     String::from("line1"),
+    ///     String::from("line2")
+    /// ];
+    /// let s = v.merge();
+    ///
+    /// assert_eq!(s, "line0\nline1\nline2");
+    /// ```
     fn merge(&self) -> String;
 }
 
