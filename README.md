@@ -8,7 +8,7 @@ A library with various extension and helper functionality.
 
 ## License
 
-Rich_Lib is released under a MIT License
+rich_lib is released under a MIT License
 
 Copyright (c) 2019 Richard70NL (http://richard70.nl)
 
